@@ -1,0 +1,16 @@
+aryalancaster&1&1
+LukeW&1&1
+alex&1&1
+NO&2&1
+alevin&2&-1
+akarlin&2&-1
+alevin&1&1
+alevin&3&1
+test1&4&-2
+test1&3&1
+k&2&-1
+M&2&-1
+dw&1&1
+dw&1&-2
+nivelnola&3&1
+nivelnola&1&-1

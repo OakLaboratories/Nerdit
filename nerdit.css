@@ -1,0 +1,52 @@
+.linkbutton {
+background-color:transparent;
+border-style:none;
+text-decoration:underline;
+font:inherit;
+color:#FFFFFF;
+outline-style:none;
+cursor:pointer;
+padding:inherit;
+display:inline;
+}
+
+.inform {
+display:inline;
+}
+
+.linkbutton:active {
+color:red;
+}
+
+a:visited {
+color:#FFFFFF;
+}
+
+a:active {
+color:red;
+}
+
+table {
+border-spacing: 2px;
+margin: auto;
+}
+
+body {
+background: -webkit-linear-gradient(#0099FF, #00FF66);
+background: -o-linear-gradient(#0099FF, #00FF66);
+background: -moz-linear-gradient(#0099FF, #00FF66);
+background: linear-gradient(#0099FF, #00FF66);
+background-repeat: no-repeat;
+}
+
+html {
+height: 100%;
+}
+
+td {
+color:#000000;
+}
+
+th {
+color:#000000;
+}
