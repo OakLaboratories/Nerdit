@@ -12,7 +12,7 @@ def check(usr, password):
     d = data.namedict()
     if usr in d:
         if d[usr][0] == password:
-            return "<h1>Username and Password Correct.</h1><form method='POST' action='trivia.py'>" + userdata + "<input class='linkbutton' type='submit' name='submit' value='Click to Advance Further'></form>"
+            return "<h1>Username and Password Correct.</h1><form method='GET' action='trivia.py'>" + userdata + "<input class='linkbutton' type='submit' name='submit' value='Click to Advance Further'></form>"
     return "<h1>Username and Password Incorrect.</h1><a href='index.html'>Click to go Back</a>"
 
 def register(usr, password, confirm):
@@ -27,7 +27,7 @@ def register(usr, password, confirm):
             f = open('names.txt', 'a')
             f.write(usr + '@%' + password + '@%1\n')
             f.close()
-            return "<h1>Registration Complete.</h1><form method='POST' action='trivia.py'>" + userdata + "<input class='linkbutton' type='submit' name='submit' value='Click to Advance Further'></form>"
+            return "<h1>Registration Complete.</h1><form method='GET' action='trivia.py'>" + userdata + "<input class='linkbutton' type='submit' name='submit' value='Click to Advance Further'></form>"
 
 d = cgi.FieldStorage()
 print '<html><head><title>Nerdit</title><link rel="stylesheet" type="text/css" href="nerdit.css"></head><body>'
