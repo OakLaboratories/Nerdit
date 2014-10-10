@@ -32,13 +32,13 @@ def send(inputs):
                 access += 'You do not have the authority to deny return of the ability to post on the site!<br>You are granted it!'
             elif level == '5':
                 access = '<h1> Welcome Lord Administrator, King on the Nerdit Throne! </h1>'
-            access += """<form action="home.py" method="POST"><br>
+            access += """<form action="home.py" method="GET"><br>
             <input type="submit" class='linkbutton' name="nerd" value="Proceed to Nerdit">""" + userdata
             access += '</form>'
         print access
     else:
         print 'You have brought shame and dishonor upon your family.'
-        print """<form action="trivia.py" method="POST"><br><input class='linkbutton' type='submit' name='back' value='Retake Quiz'>"""
+        print """<form action="trivia.py" method="GET"><br><input class='linkbutton' type='submit' name='back' value='Retake Quiz'>"""
         print userdata + '</form>'
 inputs = cgi.FieldStorage()
 

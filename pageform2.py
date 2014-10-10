@@ -12,7 +12,7 @@ def pageform(usr):
     print data.header
     print '<center>'
     print '<h1>Create New Thread</h1>'
-    print '<form action="pageform2.py" method="POST" id="new">'
+    print '<form action="pageform2.py" method="GET" id="new">'
     print 'Thread Name (Note - Commas will not appear in title):'
     print '<input type="text" name="name" required><br>Post:'
     print '<br><textarea name="newpost" id="new" required></textarea><br>'
@@ -39,7 +39,7 @@ def newpage(name, newpost, usr):
     f.write(name + '@%' + pagename + '@%' + usr + '@%' + newpost + "@%" + dts + '\n')
     f.close()
     print data.header
-    print "Your page has been created. Click <form class='inform' action='pageform2.py' method='POST'><input type='hidden' name='n' value=" + pagename + ">" + userdata
+    print "Your page has been created. Click <form class='inform' action='pageform2.py' method='GET'><input type='hidden' name='n' value=" + pagename + ">" + userdata
     print "<input type='submit' class='linkbutton' name='display' value='Here'></form> to visit the page."
     print data.footer
     
@@ -54,14 +54,14 @@ def displaypage(n, usr, level):
     print '<h1>' + newl[0] + '</h1><h3>By ' + newl[2] + '</h3><p>' + newl[3] + '</p>'
     print 'Likes: ' + str(data.countLike(n))
     
-    print '<form action="pageform2.py" method="POST">' + userdata
+    print '<form action="pageform2.py" method="GET">' + userdata
     print "<input type='hidden' name='n' value=" + n + "><input type='submit' name='like' class='linkbutton' value='Like Page'> or <input type='submit' name='dislike' class='linkbutton' value='Dislike Page'></form><br>"
     print "Comments:<br>" + showComments(usr, n)
-    print "<br>Write Comment: <form action='pageform2.py' method='POST' id='reply'><textarea form='reply' name='comment'></textarea><input type='hidden' name='parent' value='0'><input type='hidden' name='cid' value=" + newId(n, '0') + ">"
+    print "<br>Write Comment: <form action='pageform2.py' method='GET' id='reply'><textarea form='reply' name='comment'></textarea><input type='hidden' name='parent' value='0'><input type='hidden' name='cid' value=" + newId(n, '0') + ">"
     print "<br>" + userdata + "<input type='hidden' name='n' value=" + n + "><input type='submit' name='write' value='Post Comment'></form>"
     if newl[2] == usr or level == '5':
-        print "<br><form action='pageform2.py' method='POST'>" + userdata + "<input type='hidden' name='n' value=" + n + "><input type='submit' name='delete' value='Delete Page' class='linkbutton'></form>"
-    print "<br><br><form action='home.py' method='POST'>" + userdata + '<input type="submit" name="home" value="Return to homepage" class="linkbutton"></form>' 
+        print "<br><form action='pageform2.py' method='GET'>" + userdata + "<input type='hidden' name='n' value=" + n + "><input type='submit' name='delete' value='Delete Page' class='linkbutton'></form>"
+    print "<br><br><form action='home.py' method='GET'>" + userdata + '<input type="submit" name="home" value="Return to homepage" class="linkbutton"></form>' 
     print data.footer
 
 def likePage(n, usr, tlike):
@@ -87,7 +87,7 @@ def likePage(n, usr, tlike):
             print '<h1>Page has been disliked</h1>'
         else:
             print '<h1>Page has been liked</h1>'
-    print "<form action='pageform2.py' method='POST'>" + userdata
+    print "<form action='pageform2.py' method='GET'>" + userdata
     print "<input type='hidden' name='n' value=" + n + "><input type='submit' name='display' value='Click to go back' class='linkbutton'></form>"
     print data.footer
 
@@ -104,7 +104,7 @@ def lookGive(usr, lst, parent, n):
     while count < len(lst):
         if lst[count][1] == n and lst[count][4] == parent:
             comments += "<li>" + lst[count][0] + ", " + lst[count][3] + ' - ' + lst[count][2] + " "
-            comments += "<form style='display:inline;' action='pageform2.py' method='POST'><input type='hidden' name='parent' value=""" + lst[count][4] + ">"
+            comments += "<form style='display:inline;' action='pageform2.py' method='GET'><input type='hidden' name='parent' value=""" + lst[count][4] + ">"
             comments += userdata
             comments += "<input type='hidden' name='n' value=" + n + ">"
             comments += "<input type='hidden' name='cid' value=" + lst[count][5] + " ><input type='submit' name='reply' value='Reply' class='linkbutton'></form>"
@@ -124,7 +124,7 @@ def writeComment(usr, n, comment, parent, cid):
     f.close()
     print data.header
     print "<h1>Comment has been posted</h1>"
-    print "<form action='pageform2.py' method='POST'>" + userdata
+    print "<form action='pageform2.py' method='GET'>" + userdata
     print "<input type='hidden' name='n' value=" + n + "><input type='submit' name='display' value='Click to go back' class='linkbutton'></form>"
     print data.footer
 
@@ -205,7 +205,7 @@ def delete(usr, n):
         lfile.write(l)
         lfile.close()
         print "<h1>Post deleted</h1>"
-    print "<br><form action='home.py' method='POST'>" + userdata
+    print "<br><form action='home.py' method='GET'>" + userdata
     print "<input type='submit' class='linkbutton' name='home' value='Click to return to homepage'></form>"
     print data.footer
 
@@ -226,7 +226,7 @@ def reply(usr, n, parent, cid):
     parent = parent + '-' + cid
     cid = newId(n, parent)
     print data.header
-    print"<h1>Reply to Comment</h1><br><form action='pageform2.py' method='POST'>Reply:<input type='text' name='comment'>"
+    print"<h1>Reply to Comment</h1><br><form action='pageform2.py' method='GET'>Reply:<input type='text' name='comment'>"
     print userdata + "<input type='hidden' name='n' value=" + n + ">"
     print "<input type='hidden' name='parent' value=" + parent + "><input type='hidden' name='cid' value=" + cid + ">"
     print "<input type='submit' name='write' value='Write Comment' class='linkbutton'></form>"
@@ -244,7 +244,7 @@ else:
         password = d['password'].value
         userdata = "<input type='hidden' name='usr' value=" + usr + "><input type='hidden' name='password' value=" + password + "><input type='hidden' name='level' value=" + level + ">"
         permissiond = data.header + '<h1>Your nerdiness level is not high enough! Please upgrade it through the link on the homepage!</h1>'
-        permissiond += '<form method="POST" action="home.py"><input type="submit" name="home" value="Return to Homepage" class="linkbutton">' + userdata + '</form>' + data.footer
+        permissiond += '<form method="GET" action="home.py"><input type="submit" name="home" value="Return to Homepage" class="linkbutton">' + userdata + '</form>' + data.footer
         if 'make' in d:
             if int(level) >= 4:
                 pageform(usr)

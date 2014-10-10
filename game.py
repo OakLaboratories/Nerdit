@@ -46,7 +46,7 @@ def submit(wrd, usr):
     else:
         fle.write(data.numbercheck(data.check(wrd)) + '@%' + usr + '@%' + data.timenow() + '\n')
         print """<font color="green"><h2><center>Thank you for your submission!</center></h2></font>"""
-    print "<form action='game.py' method='POST'>" + userdata + "<input type='submit' class='linkbutton' value='Go Back' name='return'></form>"
+    print "<form action='game.py' method='GET'>" + userdata + "<input type='submit' class='linkbutton' value='Go Back' name='return'></form>"
     print data.footer
     fle.close()
 
@@ -77,7 +77,7 @@ def reset(usr, level):
 		fle = open('reset.txt', 'w')
 		fle.close
 		print """<font color="green"><h2><center>The game has been reset to default.</center></h2></font>"""	
-	print "<form action='game.py' method='POST'>" + userdata + "<input type='submit' class='linkbutton' value='Close' name='return'></form>"
+	print "<form action='game.py' method='GET'>" + userdata + "<input type='submit' class='linkbutton' value='Close' name='return'></form>"
 
 ###To display the actual page
 form = cgi.FieldStorage()
@@ -99,11 +99,11 @@ else:
             print HTML_head
             print current()
             print '<font size="4">Would you like to submit a word?</font>'
-            print '<form method="POST" action="game.py">'
+            print '<form method="GET" action="game.py">'
             print '<input type="text" name="new" placeholder="Word" required>'
             print '<br><input type="submit" value="Submit Word" name="Submit">' + userdata + '</form>'
-            print '<form method="POST" action="game.py"><input type="submit" value="Reset"  name="onceagain">' + userdata + '</form>'
-            print '<form method="POST" action="home.py"><input type="submit" value="Return to Homepage"  name="home" class="linkbutton">' + userdata + '</form>'
+            print '<form method="GET" action="game.py"><input type="submit" value="Reset"  name="onceagain">' + userdata + '</form>'
+            print '<form method="GET" action="home.py"><input type="submit" value="Return to Homepage"  name="home" class="linkbutton">' + userdata + '</form>'
         if 'onceagain' in form.keys():
             reset(usr, level)
         print data.footer

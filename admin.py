@@ -27,10 +27,10 @@ def admin(usr, adminpw):
                         ncount += 1
                     level = '5'
             count += 1
-        print "<br><form action='home.py' method='POST'><input type='hidden' name='usr' value=" + usr + "><input type='hidden' name='password' value=" + password + "><input type='hidden' name='level' value='5'>"
+        print "<br><form action='home.py' method='GET'><input type='hidden' name='usr' value=" + usr + "><input type='hidden' name='password' value=" + password + "><input type='hidden' name='level' value='5'>"
     else:
         print "You have failed. You will not be an admin!"
-        print "<br><form action='home.py' method='POST'>" + userdata
+        print "<br><form action='home.py' method='GET'>" + userdata
     print "<input type='submit' class='linkbutton' name='home' value='Click to return to homepage'></form>"
     print data.footer
 
@@ -79,6 +79,6 @@ else:
             print data.header
             blockusr = inputs['blockusr'].value
             print block(blockusr)
-            print "<form action='home.py' method='POST'><input type='submit' class='linkbutton' name='home' value='Return to Homepage'>" + userdata + '</form>'
+            print "<form action='home.py' method='GET'><input type='submit' class='linkbutton' name='home' value='Return to Homepage'>" + userdata + '</form>'
             print data.footer
 

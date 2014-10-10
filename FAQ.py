@@ -21,5 +21,5 @@ else:
 
     ###To create the file
     print txt
-    print "<form action='home.py' method='POST'><input type='hidden' name='usr' value='" + usr + "'><input type='hidden' name='password' value='" + password + "'><input type='hidden' name='level' value='" + level + "'>"
+    print "<form action='home.py' method='GET'><input type='hidden' name='usr' value='" + usr + "'><input type='hidden' name='password' value='" + password + "'><input type='hidden' name='level' value='" + level + "'>"
     print '<input type="submit" value="Return to Homepage"  name="home" class="linkbutton"></form>'
