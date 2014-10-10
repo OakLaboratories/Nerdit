@@ -14,7 +14,7 @@ def quiz(question, answer, wrong1, wrong2, wrong3):
     """will accept a question and 4 answer choices in string format, and
     will format this into a quiz"""
     s = question
-    s += '<br><form action="trials.py" method="POST"><br>'
+    s += '<br><form action="trials.py" method="GET"><br>'
     """Organizes the 4 answer choices completely randomly"""
     if random.randrange(4) == 0:
         s += '<input type="submit" name="' + answer + '" value="' + answer + '">'
@@ -177,10 +177,10 @@ else:
                     count += 1
         else:
             print '<h1>You are incorrect!</h1>'
-            print '<form action="trials.py" method="POST">' + userdata + '<input type="hidden" name="qnumber" value="0"><input type="hidden" name="questionNumber" value="0"><input type="submit" name="quiz" value="Try again"></form>'
-        print "<br><form action='home.py' method='POST'>" + userdata
+            print '<form action="trials.py" method="GET">' + userdata + '<input type="hidden" name="qnumber" value="0"><input type="hidden" name="questionNumber" value="0"><input type="submit" name="quiz" value="Try again"></form>'
+        print "<br><form action='home.py' method='GET'>" + userdata
         print "<input type='submit' class='linkbutton' name='home' value='Click to Return to Homepage'></form>"
-        print '<br><br><form action="admin.py" type="POST">' + userdata + '<input type="password" name="adminpw" required><input type="submit" name="admin" value="Upgrade to Admin"></form>'
+        print '<br><br><form action="admin.py" type="GET">' + userdata + '<input type="password" name="adminpw" required><input type="submit" name="admin" value="Upgrade to Admin"></form>'
         print data.footer
 
 

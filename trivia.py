@@ -16,7 +16,7 @@ def quiz(question, answer, wrong1, wrong2, wrong3):
     """will accept a question and 4 answer choices in string format, and
     will format this into a quiz"""
     s = question
-    s += '<br><form action="check.py" method="POST"><br>'
+    s += '<br><form action="check.py" method="GET"><br>'
     """Organizes the 4 answer choices completely randomly"""
     if random.randrange(4) == 0:
         s += '<input type="submit" name="' + answer +'" value="' + answer + '">'
